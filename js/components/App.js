@@ -5,10 +5,11 @@ import Widgets2 from './Widgets2';
 
 class App extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <div>
-        <Widgets1 />
-        <Widgets2 />
+        <Widgets1 viewer={this.props.viewer} />
+        <Widgets2 viewer={this.props.viewer} />
       </div>
     );
   }
@@ -19,14 +20,8 @@ export default Relay.createContainer(App,
   fragments: {
     viewer: () => Relay.QL`
       fragment on User {
-        widgets(first: 10) {
-          edges {
-            node {
-              id,
-              name,
-            },
-          },
-        },
+        ${Widgets1.getFragment('viewer')}
+        ${Widgets2.getFragment('viewer')}
       }
     `,
   },

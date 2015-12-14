@@ -1,6 +1,6 @@
 import 'babel/polyfill';
 
-//import App from './components/App';
+import App from './components/App';
 import Widgets1 from './components/Widgets1';
 import Widgets2 from './components/Widgets2';
 import AppHomeRoute from './routes/AppHomeRoute';
@@ -13,11 +13,7 @@ let route = new AppHomeRoute();
 ReactDOM.render(
   <div>
     <Relay.RootContainer
-      Component={Widgets1}
-      route={route}
-    />
-    <Relay.RootContainer
-      Component={Widgets2}
+      Component={App}
       route={route}
     />
   </div>,
