@@ -5,7 +5,7 @@ import Widgets2 from './Widgets2';
 
 class App extends React.Component {
   render() {
-    console.log(this.props);
+    console.log('Root: ', this.props);
     return (
       <div>
         <Widgets1 viewer={this.props.viewer} />
@@ -17,6 +17,9 @@ class App extends React.Component {
 
 export default Relay.createContainer(App,
 {
+  initialVariables: {
+    widgets1PageSize: 3
+  },
   fragments: {
     viewer: () => Relay.QL`
       fragment on User {

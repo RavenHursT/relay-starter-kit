@@ -2,8 +2,15 @@ import React from 'react';
 import Relay from 'react-relay';
 
 class Widgets2 extends React.Component {
+  increasePageSize () {
+    this.props.relay.setVariables({
+      widgets1PageSize: this.props.relay.variables.widgets1PageSize + 1
+    })
+  }
+
   render() {
-    console.log(this.props)
+    console.log('Widgets2', this.props)
+
     return (
       <div>
         <h1>Widget list 2</h1>
@@ -12,6 +19,7 @@ class Widgets2 extends React.Component {
             <li key={edge.node.id}>{edge.node.name} (ID: {edge.node.id})</li>
           )}
         </ul>
+        <button onClick={this.increasePageSize.bind(this)}>Increase pageSize</button>
       </div>
     );
   }

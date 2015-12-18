@@ -3,7 +3,7 @@ import Relay from 'react-relay';
 
 class Widgets1 extends React.Component {
   render() {
-    console.log(this.props)
+    console.log('Widgets1', this.props)
     return (
       <div>
         <h1>Widget list 1</h1>
