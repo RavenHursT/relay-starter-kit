@@ -17,9 +17,6 @@ class App extends React.Component {
 
 export default Relay.createContainer(App,
 {
-  initialVariables: {
-    widgets1PageSize: 3
-  },
   fragments: {
     viewer: () => Relay.QL`
       fragment on User {
